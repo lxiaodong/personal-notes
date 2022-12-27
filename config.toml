@@ -26,7 +26,6 @@ theme = "hugo-theme-relearn"
 
 # the main language of this site; also an automatic pirrrate translation is
 # available in this showcase
-languageCode = "zh"
 defaultContentLanguage = "zh"
 # if you want to get rrrid o' ourrr pirrrates nonsense uncomment th' next line
 # disableLanguages = ['pir']
@@ -37,7 +36,7 @@ title = "Hugo"
 # We disable this for testing the exampleSite; you must do so too
 # if you want to use the themes parameter disableGeneratorVersion=true;
 # otherwise Hugo will create a generator tag on your home page
-disableHugoGeneratorInject = true
+# disableHugoGeneratorInject = true
 
 [outputs]
   # add JSON to the home to support lunr search; This is a mandatory setting
@@ -83,43 +82,20 @@ disableHugoGeneratorInject = true
 # to your content or use fully-quallified URLs to link outside of
 # your project
 [Languages]
-  [Languages.en]
-    title = "Home"
-    weight = 1
-    languageName = "English"
-    landingPageName = "<i class='fas fa-home'></i> Home"
-
-  [[Languages.en.menu.shortcuts]]
-    name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
-    identifier = "ds"
-    url = "https://github.com/McShelby/hugo-theme-relearn"
-    weight = 10
-
-  [[Languages.en.menu.shortcuts]]
-    name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
-    identifier = "hugodoc"
-    url = "https://gohugo.io/"
-    weight = 20
-
-  [[Languages.en.menu.shortcuts]]
-    name = "<i class='fas fa-fw fa-tags'></i> Tags"
-    url = "tags/"
-    weight = 40
-
-  # this is ourrr way t' showcase th' multilang settings by
-  # doing autotrrranlat'n of th' english content; we are
-  # lazy and don't supporrt furrrther trrranslations; arrr,
-  # don't take it t' serrrious, fello'; it's prrretty hacky and:
-  # NOT MEANT FER PRRRODUCTION! ARRR!
-
-  [Languages.zh]
+[Languages.zh]
     title = "首页"
     weight = 1
     languageName = "简体中文"
     landingPageName = "<i class='fas fa-home'></i> Arrr! Home"
 
+
   [[Languages.zh.menu.shortcuts]]
-    name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+    name = "<i class='fas fa-fw fa-tags'></i> 标签"
+    url = "tags/"
+    weight = 40
+
+  [[Languages.zh.menu.shortcuts]]
+    name = "<i class='fab fa-fw fa-github'></i> GitHub relearn"
     identifier = "ds"
     url = "https://github.com/McShelby/hugo-theme-relearn"
     weight = 10
@@ -129,13 +105,6 @@ disableHugoGeneratorInject = true
     identifier = "hugodoc"
     url = "https://gohugo.io/"
     weight = 20
-
-
-  [[Languages.zh.menu.shortcuts]]
-    name = "<i class='fas fa-fw fa-tags'></i> 标签"
-    url = "tags/"
-    weight = 40
-
 
 # settings specific to this theme's features; choose to your likings and
 # consult this documentation for explaination

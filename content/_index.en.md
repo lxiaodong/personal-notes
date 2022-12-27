@@ -1,6 +1,0 @@
-+++
-archetype = "home"
-title = ""
-+++
-
-
