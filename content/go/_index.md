@@ -1,5 +1,5 @@
 +++
 archetype = "chapter"
 title = "Go"
-weight = 1
+weight = 2
 +++
