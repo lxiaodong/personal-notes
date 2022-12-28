@@ -7,12 +7,12 @@ tags:
 weight: 2
 ---
 
-#### 1. 起因
+##### 1. 起因
 lua脚本需要解析一个请求过来的json格式的数据，原有的luajit并没有带cjson库，需要自己手动安装一下。
 
-#### 2. 安装
+##### 2. 安装
 
-##### 2.1下载安装LuaJIT-2.0.4.tar.gz，需配置环境变量
+###### 2.1下载安装LuaJIT-2.0.4.tar.gz，需配置环境变量
 {{% notice tip %}}
 lua是一种解释语言，通过luajit可以即时编译lua代码到机器代码，得到很好的性能；
 {{% /notice %}}
@@ -34,7 +34,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     export LUAJIT_INC=/usr/local/luajit/include/luajit-2.0
 ```
 
-##### 2.2 下载安装cjson
+###### 2.2 下载安装cjson
 ```bash
     cd /data/soft/nginx
 
@@ -47,11 +47,11 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     make && make install
 ```
 
-#### 3. 问题？
+##### 3. 问题？
 上述安装过程是已经解决了所有问题的方法，以下是可能遇到的问题？
 
 {{% notice info %}}
-##### 3.1 No such file or directory
+###### 3.1 No such file or directory
 报错信息如下：
 ```text
     lua_cjson.43:17:  lua. No such file or directory
