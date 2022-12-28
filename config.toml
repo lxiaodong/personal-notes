@@ -26,7 +26,7 @@ theme = "hugo-theme-relearn"
 
 # the main language of this site; also an automatic pirrrate translation is
 # available in this showcase
-defaultContentLanguage = "zh"
+defaultContentLanguage = "en"
 # if you want to get rrrid o' ourrr pirrrates nonsense uncomment th' next line
 # disableLanguages = ['pir']
 
@@ -82,26 +82,26 @@ title = "Hugo"
 # to your content or use fully-quallified URLs to link outside of
 # your project
 [Languages]
-[Languages.zh]
-    title = "首页"
+[Languages.en]
+    title = "Home"
     weight = 1
-    languageName = "简体中文"
-    landingPageName = "<i class='fas fa-home'></i> Arrr! Home"
+    # languageName = "简体中文"
+    # landingPageName = "<i class='fas fa-home'></i> Arrr! Home"
 
 
-  [[Languages.zh.menu.shortcuts]]
-    name = "<i class='fas fa-fw fa-tags'></i> 标签"
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-tags'></i> Tags"
     url = "tags/"
     weight = 40
 
-  [[Languages.zh.menu.shortcuts]]
-    name = "<i class='fab fa-fw fa-github'></i> GitHub relearn"
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
     identifier = "ds"
     url = "https://github.com/McShelby/hugo-theme-relearn"
     weight = 10
 
-  [[Languages.zh.menu.shortcuts]]
-    name = "<i class='fas fa-fw fa-bookmark'></i> Hugo 文档"
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
     identifier = "hugodoc"
     url = "https://gohugo.io/"
     weight = 20
@@ -109,8 +109,8 @@ title = "Hugo"
 # settings specific to this theme's features; choose to your likings and
 # consult this documentation for explaination
 [params]
-  editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/"
-  description = "Documentation for Hugo Relearn Theme"
+  editURL = "https://github.com/lxiaodong/personal-notes/tree/main/content/"
+  description = "Documentation for lixiaodong personal note"
   author = "lixiaodong"
   showVisitedLinks = true
   collapsibleMenu = true
