@@ -5,15 +5,15 @@ tags:
 - lua
 weight: 1
 ---
-##### 1. 起因？
+## 1. 问题
 鉴权的一个需求，因为服务过多，重复的鉴权逻辑比较不友好，又暂无网关，便想到了可以在nginx中使用lua脚本做鉴权处理，后续如果使用网关，也可以增加到网关中，一劳永逸。
 
-##### 2. 诊断
+## 2. 方案
 nginx中有很多的配置，所以只能在原有的基础上增加扩展
 
-##### 3. 安装扩展
+## 3. 安装扩展
 
-###### 3.1下载安装LuaJIT-2.0.4.tar.gz，需配置环境变量
+#### 3.1下载安装LuaJIT-2.0.4.tar.gz，需配置环境变量
 {{% notice note %}}
 lua是一种解释语言，通过luajit可以即时编译lua代码到机器代码，得到很好的性能；
 {{% /notice %}}
@@ -36,7 +36,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     export LUAJIT_INC=/usr/local/luajit/include/luajit-2.0
 ```
 
-###### 3.2 下载解压ngx_devel_kit，不需要安装
+#### 3.2 下载解压ngx_devel_kit，不需要安装
 ```bash
     cd /data/soft/nginx
 
@@ -45,7 +45,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     tar -xzvf v0.3.0.tar.gz
 ```
 
-###### 3.3 下载解压lua-nginx-module，不需要安装
+#### 3.3 下载解压lua-nginx-module，不需要安装
 ```bash
     cd /data/soft/nginx
 
@@ -54,7 +54,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     tar -xzvf v0.10.9rc7.tar.gz
 ```
 
-###### 3.4 下载nginx，编译安装
+#### 3.4 下载nginx，编译安装
 {{% notice tip %}}
 [nginx下载地址：](http://nginx.org/download/)
 注意: nginx 如果升级的话最好与你当前环境的的版本一直，查看nginx版本（nginx -v）
@@ -68,7 +68,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     tar -xzvf nginx-1.12.2.tar.gz
 ```
 
-###### 3.5 编译安装
+#### 3.5 编译安装
 {{% notice tip %}}
 
 查看当前nginx的扩展（nginx -V）
@@ -102,7 +102,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
 ```
 {{% /notice %}}
 
-###### 3.6 验证是否增加lua模块
+#### 3.6 验证是否增加lua模块
 ```bash
     cd /data/soft/nginx/nginx-1.12.2/objs
 
@@ -118,7 +118,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     }
 ```
 
-###### 3.7 替换nginx的执行文件&平滑升级
+#### 3.7 替换nginx的执行文件&平滑升级
 ```bash
     cd /usr/local/nginx/sbin/nginx
 
@@ -130,7 +130,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     make upgrade
 ```
 
-###### 3.8 验证nginx增加lua模块是否成功
+#### 3.8 验证nginx增加lua模块是否成功
 ```bash
     nginx -V #查看是否增加了lua相关模块
 
@@ -141,7 +141,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     configure arguments: --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_v2_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module --with-openssl=/data/soft/nginx/lnmp1.4-full/src/openssl-1.0.2l --add-module=/data/soft/nginx/lua-nginx-module-0.10.9rc7 --add-module=/data/soft/nginx/ngx_devel_kit-0.3.0 --with-stream
 ```
 
-###### 3.9 验证lua是使用成功
+#### 3.9 验证lua是使用成功
 ```bash
     vim /usr/local/nginx/conf/nginx.conf
 
@@ -153,11 +153,11 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     }
 ```
 
-##### 4.可能遇到的问题？
+## 4.可能遇到的问题？
 {{% notice info %}}
 上述安装过程是已经解决了所有问题的方法，以下是可能遇到的问题？
 
-###### 4.1 error while loading shared libraries: libluajit-5.1.so.2: cannot open shared object file: No such file or directory
+#### 4.1 error while loading shared libraries: libluajit-5.1.so.2: cannot open shared object file: No such file or directory
 ```text
     方法1：
     执行下面的代码（注意前面的路径是你自己安装的luajit路径，正常的安装可能不一样，需要自己排查以下）
@@ -169,7 +169,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
 
     echo "/usr/local/luajit/lib" > /etc/ld.so.conf.d/usr_local_lib.conf
 ```
-###### 4.2 如果nginx原本有openssl，但是编辑的时候找不到，需要自己重新指定一下
+#### 4.2 如果nginx原本有openssl，但是编辑的时候找不到，需要自己重新指定一下
 ```text
     cd /data/soft/nginx
 
@@ -186,6 +186,6 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
 ```
 {{% /notice %}}
 
-##### 5. 参考地址
+## 5. 参考地址
 https://www.cnblogs.com/trustnature/articles/15250071.html
 
