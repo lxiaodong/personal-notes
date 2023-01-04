@@ -1,8 +1,10 @@
 ---
 title: "gin 自定义response Writer"
 tags: 
-- GO GIN ResponseWriter
-weight: 4
+- go
+- gin
+- responseWriter
+weight: 100
 ---
 
 ## 1.问题

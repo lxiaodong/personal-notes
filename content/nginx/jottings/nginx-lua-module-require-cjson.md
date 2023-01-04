@@ -38,7 +38,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
 ```bash
     cd /data/soft/nginx
 
-    wget https ://github.com/Kong/kong-cjson/archive/2.1.0.tar.gz
+    wget https://github.com/Kong/kong-cjson/archive/2.1.0.tar.gz
 
     tar zxvf 2.1.0.tar.gz
 

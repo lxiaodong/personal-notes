@@ -1,8 +1,9 @@
 ---
 title: "解析openssl_encrypt加密数据"
 tags: 
-- PHP openssl_encrypt
-- go aes ecb
+- php
+- go
+- aes ecb
 weight: 1
 ---
 

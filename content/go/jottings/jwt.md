@@ -1,7 +1,8 @@
 ---
 title: "jwt包的封装"
 tags: 
-- GO JWT
+- go
+- jwt
 weight: 3
 ---
 
