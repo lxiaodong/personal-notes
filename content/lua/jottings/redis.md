@@ -158,15 +158,6 @@ function redirectClient:init()
     self:newRedis()
 end
 
-function redirectClient:redirect()
-    if self.type == self.const.TYPE_SHARE_NEWS then
-        local arg = ngx.req.get_uri_args()
-        if arg.news_id ~= nil then
-             return ngx.redirect("/html/share/news/" .. arg.news_id .. "?source=" .. arg.source)
-        end
-    end
-end
-
 function redirectClient:newConst()
     local function Const(const_table)
         local mt = {
@@ -182,6 +173,20 @@ function redirectClient:newConst()
     }
     setmetatable(t, Const(const_params))
     self.const = t
+end
+
+function redirectClient:redirect()
+    if self.type == self.const.TYPE_SHARE_NEWS then
+        local arg = ngx.req.get_uri_args()
+        local url = ngx.var.request_uri
+        local m, err = ngx.re.match(url, "(news/[0-9]+)")
+        if type(m) == "nil" then
+            if arg.news_id ~= nil then
+                local url = "/html/share/news/" .. arg.news_id .. "?" .. ngx.var.args
+                return ngx.redirect(url)
+            end
+        end
+    end
 end
 
 function redirectClient:initArg()
@@ -200,6 +205,7 @@ end
 function redirectClient:newRedis()
     local config = self:getRedisConfig()
     if config == nil then
+        ngx.log(ngx.ERR, "not fount config")
         return
     end
 
@@ -209,11 +215,13 @@ function redirectClient:newRedis()
 
     local ok, err = red:connect(config.host, config.port)
     if not ok then
+        ngx.log(ngx.ERR, "failed to connect: " .. err)
         return
     end
 
     local res, err = red:auth(config.pwd)
     if not res then
+        ngx.log(ngx.ERR, "failed to authenticate: " .. err)
         return
     end
 
@@ -223,7 +231,7 @@ end
 
 function redirectClient:getRedisConfig()
     local configs = {
-        dev = {host = "47.106.69.239", port = "6379", pwd = "j2drz5DQqZRYPCtT."},
+        test = {host = "47.106.69.239", port = "6379", pwd = "j2drz5DQqZRYPCtT."},
         pro = {host = "172.18.172.160", port = "6379", pwd = "j2drz5DQqZRYPCtT"}
     }
 
@@ -243,7 +251,8 @@ function redirectClient:keepalive()
 end
 
 function redirectClient:shareNews()
-    if self.redis == nil then
+    if next(self.redis) == nil then
+        ngx.log(ngx.INFO, "request php")
         return ngx.exec("@php")
     else
         local newId = self.arg.news_id
@@ -254,14 +263,17 @@ function redirectClient:shareNews()
         self:keepalive()
 
         if not resp then
+            ngx.log(ngx.INFO, "request php")
             return ngx.exec("@php")
         end
 
         local uri = ngx.var.uri
         if resp ~= ngx.null then
-            uri = "/n/" .. newId
+            ngx.log(ngx.INFO, "request static")
+            uri = "/sibylla/".. self.env .."/n/" .. newId .. '.html'
             ngx.req.set_uri(uri);
         else
+            ngx.log(ngx.INFO, "request php")
             return ngx.exec("@php")
         end
     end
@@ -271,6 +283,7 @@ function redirectClient:run()
     if self.type == self.const.TYPE_SHARE_NEWS then
         self:shareNews()
     else
+        ngx.log(ngx.INFO, "request php")
         return ngx.exec("@php")
     end
 end

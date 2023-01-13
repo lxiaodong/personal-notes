@@ -36,7 +36,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     export LUAJIT_INC=/usr/local/luajit/include/luajit-2.0
 ```
 
-#### 3.2 下载解压ngx_devel_kit，不需要安装
+#### 3.2 下载解压[ngx_devel_kit](https://github.com/vision5/ngx_devel_kit)，不需要安装
 ```bash
     cd /data/soft/nginx
 
@@ -45,7 +45,7 @@ lua是一种解释语言，通过luajit可以即时编译lua代码到机器代�
     tar -xzvf v0.3.0.tar.gz
 ```
 
-#### 3.3 下载解压lua-nginx-module，不需要安装
+#### 3.3 下载解压[lua-nginx-module](https://github.com/openresty/lua-nginx-module)，不需要安装
 ```bash
     cd /data/soft/nginx
 
