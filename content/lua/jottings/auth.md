@@ -1,9 +1,11 @@
 ---
-title: "lua脚本实现的鉴权方式"
+title: "Lua脚本实现的鉴权方式"
 tags: 
 - lua
 - auth
+- 随笔
 weight: 10
+description: "Lua脚本实现的鉴权方式"
 ---
 
 ## 1.lua脚本实现的鉴权方式

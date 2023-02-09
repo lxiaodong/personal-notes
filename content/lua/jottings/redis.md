@@ -4,7 +4,9 @@ tags:
 - lua
 - redis
 - proxy
+- 随笔
 weight: 10
+description: "通过redis验证是否需要反向代理"
 ---
 
 ## 1.预想效果
@@ -182,7 +184,26 @@ function redirectClient:redirect()
         local m, err = ngx.re.match(url, "(news/[0-9]+)")
         if type(m) == "nil" then
             if arg.news_id ~= nil then
-                local url = "/html/share/news/" .. arg.news_id .. "?" .. ngx.var.args
+                local url = "/html/share/news/" .. arg.news_id
+                local tmpUrlTab = {}
+                for key, val in pairs(arg) do
+                    if key ~= "news_id" then
+                        local item = ""
+                        if type(val) == "table" then
+                             for k, v in pairs(val) do
+                                item = key .. "=" .. v
+                                table.insert(tmpUrlTab, item)
+                             end
+                        else
+                             item = key .. "=" .. val
+                             table.insert(tmpUrlTab,  item)
+                        end
+                    end
+                end
+                local tmpUrl = table.concat(tmpUrlTab, "&")
+                if tmpUrl ~= "" then
+                    url = url .. "?" .. tmpUrl
+                end
                 return ngx.redirect(url)
             end
         end
@@ -252,7 +273,7 @@ end
 
 function redirectClient:shareNews()
     if next(self.redis) == nil then
-        ngx.log(ngx.INFO, "request php")
+        ngx.log(ngx.NOTICE, "request php, news_id:", self.arg.news_id)
         return ngx.exec("@php")
     else
         local newId = self.arg.news_id
@@ -263,17 +284,18 @@ function redirectClient:shareNews()
         self:keepalive()
 
         if not resp then
-            ngx.log(ngx.INFO, "request php")
+            ngx.log(ngx.NOTICE, "request php, news_id:", self.arg.news_id)
             return ngx.exec("@php")
         end
 
         local uri = ngx.var.uri
         if resp ~= ngx.null then
-            ngx.log(ngx.INFO, "request static")
+            ngx.log(ngx.NOTICE, "request static, news_id:", self.arg.news_id)
             uri = "/sibylla/".. self.env .."/n/" .. newId .. '.html'
+            ngx.req.set_uri_args("") -- 设置无请求参数，否则七牛cdn会带参数缓存
             ngx.req.set_uri(uri);
         else
-            ngx.log(ngx.INFO, "request php")
+            ngx.log(ngx.NOTICE , "request php, news_id:", self.arg.news_id)
             return ngx.exec("@php")
         end
     end
@@ -283,7 +305,7 @@ function redirectClient:run()
     if self.type == self.const.TYPE_SHARE_NEWS then
         self:shareNews()
     else
-        ngx.log(ngx.INFO, "request php")
+        ngx.log(ngx.NOTICE, "request php")
         return ngx.exec("@php")
     end
 end

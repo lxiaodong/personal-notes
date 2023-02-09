@@ -4,7 +4,9 @@ tags:
 - php
 - go
 - aes ecb
+- 随笔
 weight: 1
+description: "解析openssl_encrypt加密数据"
 ---
 
 ## 1.问题

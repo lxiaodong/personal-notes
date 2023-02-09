@@ -1,8 +1,9 @@
 +++
 archetype = "chapter"
 title = "Nginx"
-weight = 4
+weight = 5
 +++
 
-## 参考文档
-- [agentzh 的 Nginx 教程](https://openresty.org/download/agentzh-nginx-tutorials-zhcn.html)
+## 目录
+{{%children containerstyle="div" style="h2" description="true" %}}
+

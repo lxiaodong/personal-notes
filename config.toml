@@ -90,20 +90,25 @@ title = "Hugo"
 
 
   [[Languages.en.menu.shortcuts]]
-    name = "<i class='fas fa-fw fa-tags'></i> Tags"
+    name = "<i class='fas fa-fw fa-tags'></i> Personal Tags"
     url = "tags/"
-    weight = 40
+    weight = 10
 
   [[Languages.en.menu.shortcuts]]
-    name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+    name = "<i class='fab fa-fw fa-github'></i> GitHub theme relearn"
     identifier = "ds"
     url = "https://github.com/McShelby/hugo-theme-relearn"
-    weight = 10
+    weight = 30
 
   [[Languages.en.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
     identifier = "hugodoc"
     url = "https://gohugo.io/"
+    weight = 40
+  
+  [[Languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-bullhorn'></i> Personal Docs"
+    url = "more/document/"
     weight = 20
 
 # settings specific to this theme's features; choose to your likings and

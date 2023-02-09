@@ -1,10 +1,11 @@
 ---
-title: "gin 自定义response Writer"
+title: "Gin 自定义response Writer"
 tags: 
 - go
 - gin
 - responseWriter
 weight: 100
+description: "Gin 自定义response Writer"
 ---
 
 ## 1.问题

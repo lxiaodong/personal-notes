@@ -1,9 +1,11 @@
 ---
-title: "Nginx 添加lua模块"
+title: "添加lua模块"
 tags: 
 - nginx
 - lua
+- 随笔
 weight: 1
+description: "Nginx 添加lua模块, 具体可参考lua相关"
 ---
 ## 1. 问题
 鉴权的一个需求，因为服务过多，重复的鉴权逻辑比较不友好，又暂无网关，便想到了可以在nginx中使用lua脚本做鉴权处理，后续如果使用网关，也可以增加到网关中，一劳永逸。

@@ -1,10 +1,12 @@
 ---
-title: "Nginx lua模块引用resty.redis"
+title: "lua模块引用resty.redis"
 tags: 
 - nginx
 - lua
 - resty.redis
+- 随笔
 weight: 3
+description: "Nginx lua模块引用resty.redis扩展"
 ---
 
 ## 1. 问题

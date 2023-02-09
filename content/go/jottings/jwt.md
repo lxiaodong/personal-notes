@@ -1,9 +1,11 @@
 ---
-title: "jwt包的封装"
+title: "Jwt包的封装"
 tags: 
 - go
 - jwt
+- 随笔
 weight: 3
+description: "Jwt包的封装"
 ---
 
 ## 1.问题

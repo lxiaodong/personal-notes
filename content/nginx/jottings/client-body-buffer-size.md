@@ -1,10 +1,12 @@
 ---
-title: "nginx 关于client_max_body_size client_body_buffer_size配置"
+title: "关于 client_max_body_size client_body_buffer_size 配置"
 tags: 
 - nginx
 - client_body_buffer_size
 - client_max_body_size
+- 随笔
 weight: 10
+description: "Nginx 关于client_max_body_size client_body_buffer_size配置"
 ---
 
 ## 1.问题

@@ -1,10 +1,12 @@
 ---
-title: "Nginx lua模块引用cjson"
+title: "lua模块引用cjson"
 tags: 
 - nginx
 - lua
 - cjson
+- 随笔
 weight: 2
+description: "Nginx lua模块引用cjson扩展"
 ---
 
 ## 1. 问题

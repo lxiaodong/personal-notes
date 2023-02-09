@@ -1,7 +1,7 @@
 +++
 archetype = "chapter"
-title = "Go"
-weight = 1
+title = "Linux"
+weight = 6
 +++
 
 ## 目录
