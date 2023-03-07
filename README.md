@@ -4,7 +4,9 @@
 themes使用的是 [hugo-theme-relearn](https://github.com/McShelby/hugo-theme-relearn)
 
 # 使用方法
-## 安装hugo(windows)
+
+## windows下使用
+#### 安装hugo(windows)
 > 参考地址：https://gohugo.io/getting-started/installing
 ```text
     mkdir $HOME/src
@@ -14,19 +16,19 @@ themes使用的是 [hugo-theme-relearn](https://github.com/McShelby/hugo-theme-r
     go install --tags extended
 ```
 
-## 引用笔记
+#### 引用笔记
 ```text
     cd hugo
     git clone https://github.com/lxiaodong/personal-notes
 ```
 
-## 启动笔记
+#### 启动笔记
 ```text
     cd personal-notes
     hugo server -D
 ```
 
-## 安装hugo(docker)
+## docker下使用
 > 参考地址：https://github.com/klakegg/docker-hugo
 ```text
    docker pull klakegg/hugo
