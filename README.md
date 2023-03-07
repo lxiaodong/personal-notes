@@ -4,7 +4,7 @@
 themes使用的是 [hugo-theme-relearn](https://github.com/McShelby/hugo-theme-relearn)
 
 # 使用方法
-## 安装hugo
+## 安装hugo(windows)
 > 参考地址：https://gohugo.io/getting-started/installing
 ```text
     mkdir $HOME/src
@@ -24,6 +24,16 @@ themes使用的是 [hugo-theme-relearn](https://github.com/McShelby/hugo-theme-r
 ```text
     cd personal-notes
     hugo server -D
+```
+
+## 安装hugo(docker)
+> 参考地址：https://github.com/klakegg/docker-hugo
+```text
+   docker pull klakegg/hugo
+   mkdir /home/xxx/hugo/ #hugo 自定义
+   cd /home/xxx/hugo
+   git clone https://github.com/lxiaodong/personal-notes
+   docker run --rm -it -v $(pwd)/personal-notes:/src -p 1313:1313 klakegg/hugo:0.107.0  server
 ```
 
 # 引申
